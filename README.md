@@ -1,6 +1,6 @@
 # Crypto AES
 
-_Aplicación web que permite cifrar y descifrar mensajes utilizando el algoritmo AES_
+_Proyecto web que permite cifrar y descifrar mensajes utilizando el algoritmo AES_
 
 ### 🔧 Instalación
 
