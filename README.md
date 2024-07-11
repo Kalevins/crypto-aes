@@ -4,7 +4,7 @@ _Proyecto web que permite cifrar y descifrar mensajes utilizando el algoritmo AE
 
 ### 🔧 Instalación
 
-_En el directorio del proyecto, puede ejecutar:_
+_En el directorio del proyecto ejecutar:_
 
 ```
 npm i
