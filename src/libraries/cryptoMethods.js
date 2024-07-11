@@ -9,5 +9,9 @@ export const encrypter = (value, key) => {
 // unfolder
 export const unfolder = (value, key) => {
   const bytes = CryptoJS.AES.decrypt(value, key)
-  return JSON.parse(bytes.toString(CryptoJS.enc.Utf8))
+  try {
+    return JSON.parse(bytes.toString(CryptoJS.enc.Utf8))
+  } catch (error) {
+    return "Invalid key or data"
+  }
 }

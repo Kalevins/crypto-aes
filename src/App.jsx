@@ -6,24 +6,32 @@ function App() {
   const [input, setInput] = useState('')
   const [output, setOutput] = useState('')
   const [crypt, setCrypt] = useState("crypt")
+  const [key, setKey] = useState(import.meta.env.VITE_CRYPTO_KEY)
 
   const handleCrypt = () => {
-    const data = encrypter(input, import.meta.env.VITE_CRYPTO_KEY)
+    const data = encrypter(input, key)
     setOutput(data)
   }
 
   const handleDecrypt = () => {
-    const data = unfolder(input, import.meta.env.VITE_CRYPTO_KEY)
+    const data = unfolder(input, key)
     if (typeof data === 'object') {
       setOutput(JSON.stringify(data))
     } else {
       setOutput(data)
     }
-    console.log('output', output)
+  }
+
+  const handleInputKey = (e) => {
+    setKey(e.target.value)
   }
 
   const handleInput = (e) => {
-    setInput(e.target.value)
+    let text = e.target.value
+    if(text[0] === "'" && text[text.length - 1] === "'" || text[0] === '"' && text[text.length - 1] === '"') {
+      text = text.slice(1, text.length - 1)
+    }
+    setInput(text)
   }
 
   const handleCryptChange = (e) => {
@@ -32,7 +40,7 @@ function App() {
 
   return (
     <>
-      <h1>Crypt and Decrypt</h1>
+      <h1>Crypt AES</h1>
       <div className="card">
 
         <div className="check">
@@ -61,12 +69,23 @@ function App() {
         </div>
 
         <div className="input">
+        <label htmlFor="input">Key</label>
+          <input
+            name="input"
+            id="input"
+            cols="30"
+            rows="10"
+            value={key}
+            onChange={handleInputKey}
+          ></input>
+
           <label htmlFor="input">Input</label>
           <textarea
             name="input"
             id="input"
             cols="30"
             rows="10"
+            value={input}
             onChange={handleInput}
           ></textarea>
 
@@ -84,7 +103,7 @@ function App() {
             className="btn"
             onClick={crypt === 'crypt' ? handleCrypt : handleDecrypt}
           >
-            Go
+            {crypt === 'crypt' ? 'Crypt' : 'Decrypt'}
           </button>
         </div>
       </div>
