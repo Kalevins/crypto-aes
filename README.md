@@ -17,7 +17,6 @@ npm run dev
 
 * [React](https://reactjs.org/) - Librearia de JavaScript
 * [Vite](https://vitejs.dev/) - Herramienta de desarrollo
-* [HTML](https://developer.mozilla.org/es/docs/Web/HTML) - Lenguaje de marcado
 * [CSS](https://developer.mozilla.org/es/docs/Web/CSS) - Lenguaje de estilos
 * [JavaScript](https://www.javascript.com/) - Lenguaje de programación
 
